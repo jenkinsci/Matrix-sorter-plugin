@@ -22,10 +22,19 @@ public class LastAxisSorter extends MatrixConfigurationSorter{
         int compare=0;
         List<Axis> projectAxes = configuration1.getParent().getAxes();
         if(!projectAxes.isEmpty()){
-            Axis lastAxis = projectAxes.get(projectAxes.size() - 1);
-            List<String> valuesOfLastAxis = lastAxis.getValues();
-            compare = compare(valuesOfLastAxis.indexOf(configuration1.getCombination().get(lastAxis.getName())),valuesOfLastAxis.indexOf(configuration2.getCombination().get(lastAxis.getName())));
+            for (int i=projectAxes.size() - 1; i >= 0; i--) {
+                Axis lastAxis = projectAxes.get(i);
+                List<String> valuesOfLastAxis = lastAxis.getValues();
+                int index1 = valuesOfLastAxis.indexOf(configuration1.getCombination().get(lastAxis));
+                int index2 = valuesOfLastAxis.indexOf(configuration2.getCombination().get(lastAxis));
+                compare = compare(index1, index2);
+
+                if (compare != 0) {
+                    return compare;
+                }
+            }
         }
+
         if(compare==0){
             compare= configuration1.getDisplayName().compareTo(configuration2.getDisplayName());
         }
