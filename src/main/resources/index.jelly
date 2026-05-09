@@ -1,0 +1,6 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core">
+  <div>
+    Sort matrix configurations by axis order or estimated build duration.
+  </div>
+</j:jelly>

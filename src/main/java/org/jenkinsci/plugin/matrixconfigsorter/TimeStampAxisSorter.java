@@ -1,43 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.jenkinsci.plugin.matrixconfigsorter;
 
-import hudson.Extension;
-import hudson.matrix.MatrixConfiguration;
-import hudson.matrix.MatrixConfigurationSorter;
-import hudson.matrix.MatrixConfigurationSorterDescriptor;
-import hudson.matrix.MatrixProject;
-import hudson.util.FormValidation;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 /**
+ * Compatibility wrapper for old job configurations.
  *
- * @author lucinka
+ * @deprecated use {@link LongestBuildFirstSorter}
  */
-public class TimeStampAxisSorter extends MatrixConfigurationSorter{
-    public int compare(MatrixConfiguration configuration1, MatrixConfiguration configuration2) {
-        int comparision = Long.compare(configuration2.getEstimatedDuration(),configuration1.getEstimatedDuration());
-        if(comparision!=0)
-            return comparision;
-        return configuration2.getDisplayName().compareTo(configuration1.getDisplayName());
-    }
-
+@Deprecated
+public class TimeStampAxisSorter extends LongestBuildFirstSorter {
     @DataBoundConstructor
     public TimeStampAxisSorter() {
-    }
-    
-
-    @Override
-    public void validate(MatrixProject p) throws FormValidation {
-    }
-
-    @Extension
-    public static class DescriptorImpl extends MatrixConfigurationSorterDescriptor {
-        @Override
-        public String getDisplayName() {
-            return "Longest builds first";
-        }
+        super();
     }
 }
