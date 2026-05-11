@@ -122,5 +122,13 @@ public class AxisOrderSorter extends MatrixConfigurationSorter {
         public String getDisplayName() {
             return Messages.AxisOrderSorter_DisplayName();
         }
+
+        public String getAxisNamesLabel() {
+            return Messages.AxisOrderSorter_Config_axisNames();
+        }
+
+        public String getAxisNamesHelp() {
+            return Messages.AxisOrderSorter_Config_axisNamesDescription();
+        }
     }
 }
