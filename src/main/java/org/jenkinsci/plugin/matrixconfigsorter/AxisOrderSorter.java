@@ -7,6 +7,7 @@ import hudson.matrix.MatrixConfigurationSorter;
 import hudson.matrix.MatrixConfigurationSorterDescriptor;
 import hudson.matrix.MatrixProject;
 import hudson.util.FormValidation;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,7 +25,9 @@ import org.kohsuke.stapler.DataBoundSetter;
  * by order of values in configured axes (or by the last axis when not configured).
  */
 @Extension
-public class AxisOrderSorter extends MatrixConfigurationSorter {
+public class AxisOrderSorter extends MatrixConfigurationSorter implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String axisNames;
 
     @Override
