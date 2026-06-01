@@ -18,8 +18,7 @@ will be removed in the next major release.
     - `LongestBuildFirstSorter`
 - Added `config.jelly` for `AxisOrderSorter` to expose axis configuration in Jenkins UI.
 - Integration tests.
-- UI localization for **ar, da, de, es, et, fi, fr, hi_IN, it, ja, ko, nb_NO, nl, pl, pt, pt_BR, ru, sv_SE, tr, uk,
-  zh_CN, zh_TW**.
+- UI localization for **pt, ru**.
 - Stapler sidecar bundles for `AxisOrderSorter/config.jelly`: `config.properties` and matching
   `config_<locale>.properties` for the same locales.
 - Plugin summary in `index.properties` plus `index_<locale>.properties` for the same locales next to `index.jelly`.
